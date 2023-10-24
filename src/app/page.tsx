@@ -13,7 +13,7 @@ export default async function Home() {
     redirect("/login")
   }
 
-  const { data: posts } = await supabase.from('posts').select('*, user:users(*)')
+  const { data: posts } = await supabase.from('posts').select('*, user:users(*)').order('created_at', { ascending: false })
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="max-w-[600px] mx-auto border-l border-r border-white/30 min-h-screen min-w-[600px]">

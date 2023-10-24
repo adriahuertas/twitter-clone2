@@ -2,6 +2,8 @@ import { Avatar } from "@nextui-org/react"
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import { revalidatePath } from "next/cache"
+import ComposePostTextArea from "./compose-post-textarea"
+import ComposePostTextButton from "./compose-post-text-button"
 
 const ComposePost = ({
   userAvatarUrl
@@ -32,15 +34,8 @@ const ComposePost = ({
       <Avatar radius="full" size="md" src={userAvatarUrl} />
 
       <div className="flex flex-1 flex-col gap-y-4">
-        <textarea
-          className="w-full text-xl bg-black placeholder-gray-500 p-2 m-2"
-          name="content"
-          rows={4}
-          placeholder="What's happening?"
-        ></textarea>
-        <button type="submit" className="bg-sky-500 font-bold rounded-full px-5 py-2 self-end">
-          Postear
-        </button>
+        <ComposePostTextArea />
+        <ComposePostTextButton />
       </div >
     </form >
   )
